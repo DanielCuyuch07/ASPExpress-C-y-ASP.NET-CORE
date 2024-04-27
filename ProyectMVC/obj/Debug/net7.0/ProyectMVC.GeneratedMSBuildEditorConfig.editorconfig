@@ -16,6 +16,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Proyectos2024\Proyectos en procesos\ASP.NET CORE\Proyecto Web MVC\ProyectMVC
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Proyectos2024/Proyectos en procesos/ASP.NET CORE/Proyecto Web MVC/ProyectMVC/Views/Admin/Clientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ2xpZW50ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Proyectos2024/Proyectos en procesos/ASP.NET CORE/Proyecto Web MVC/ProyectMVC/Views/Admin/Departamentos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVwYXJ0YW1lbnRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Proyectos2024/Proyectos en procesos/ASP.NET CORE/Proyecto Web MVC/ProyectMVC/Views/Admin/Inversiones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW52ZXJzaW9uZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Proyectos2024/Proyectos en procesos/ASP.NET CORE/Proyecto Web MVC/ProyectMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -24,8 +36,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Proyectos2024/Proyectos en procesos/ASP.NET CORE/Proyecto Web MVC/ProyectMVC/Views/Personal/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWxcSW5kZXguY3NodG1s
+[D:/Proyectos2024/Proyectos en procesos/ASP.NET CORE/Proyecto Web MVC/ProyectMVC/Views/Inicio/IniciarSesion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXEluaWNpYXJTZXNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Proyectos2024/Proyectos en procesos/ASP.NET CORE/Proyecto Web MVC/ProyectMVC/Views/Inicio/Registrarse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXFJlZ2lzdHJhcnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Proyectos2024/Proyectos en procesos/ASP.NET CORE/Proyecto Web MVC/ProyectMVC/Views/Personal/ViewPersona.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYWxcVmlld1BlcnNvbmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Proyectos2024/Proyectos en procesos/ASP.NET CORE/Proyecto Web MVC/ProyectMVC/Views/RecursosHumanos/Index.cshtml]
