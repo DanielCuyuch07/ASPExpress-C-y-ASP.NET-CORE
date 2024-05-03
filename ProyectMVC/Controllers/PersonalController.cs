@@ -6,6 +6,11 @@ using ProyectMVC.Interfaces;
 using ProyectMVC.Models;
 using System.Data;
 
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Previewer;
+using QuestPDF.Infrastructure;
+
 namespace ProyectMVC.Controllers
 {
     public class PersonalController : Controller
@@ -16,13 +21,13 @@ namespace ProyectMVC.Controllers
         public PersonalController(IPersona persona, DbbancolombiaContext dbContext)
         {
             _persona = persona;
-            _dbContext = dbContext; 
+            _dbContext = dbContext;
         }
 
         public IActionResult ViewPersona()
         {
             var personas = _persona.GetPerson();
-            return View(personas); 
+            return View(personas);
         }
 
 
@@ -70,7 +75,7 @@ namespace ProyectMVC.Controllers
                 new DataColumn("AccountNumber"),
             });
 
-            foreach(var persona in personas)
+            foreach (var persona in personas)
             {
                 dataTable.Rows.Add(
                     persona.IdPersona,
@@ -96,8 +101,46 @@ namespace ProyectMVC.Controllers
 
         }
 
+        [HttpPost]
+        public IActionResult DescargarPDF()
+        {
 
+            // code in your main method
+             Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Size(PageSizes.A4);
+                    page.Margin(2, Unit.Centimetre);
+                    page.PageColor(Colors.White);
+                    page.DefaultTextStyle(x => x.FontSize(20));
 
+                    page.Header()
+                        .Text("Hello PDF!")
+                        .SemiBold().FontSize(36).FontColor(Colors.Blue.Medium);
 
+                    page.Content()
+                        .PaddingVertical(1, Unit.Centimetre)
+                        .Column(x =>
+                        {
+                            x.Spacing(20);
+
+                            x.Item().Text(Placeholders.LoremIpsum());
+                            x.Item().Image(Placeholders.Image(200, 100));
+                        });
+
+                    page.Footer()
+                        .AlignCenter()
+                        .Text(x =>
+                        {
+                            x.Span("Page ");
+                            x.CurrentPageNumber();
+                        });
+                });
+            }).GeneratePdf("hello.pdf");
+
+            Stream stream = new MemoryStream();
+            return File(stream, "application/pdf", "detalleventa.pdf");
+        }
     }
 }

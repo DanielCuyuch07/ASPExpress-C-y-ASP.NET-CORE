@@ -1,38 +1,37 @@
-﻿using ProyectMVC.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using ProyectMVC.Interfaces;
 using ProyectMVC.Models;
 
 namespace ProyectMVC.Clases
 {
     public class ClientesServices : IClientes
     {
-        private readonly DbbancolombiaContext _bbancolombiaContext;
+        private readonly DbbancolombiaContext _dbContext;
 
         public ClientesServices(DbbancolombiaContext context)
         {
-            _bbancolombiaContext = context;
+            _dbContext = context;
         }
 
         public List<Cliente> GetClientes()
         {
             try { 
-                return _bbancolombiaContext.Clientes.ToList();
+                return _dbContext.Clientes.ToList();
             }catch(Exception ex) { 
                 return new List<Cliente>(); 
             }
         }
 
-
-
         public bool DeleteClientes(int idCliente, out string message)
         {
             try
             {
-                var idClienteDelete = _bbancolombiaContext.Clientes.Find(idCliente);
+                var idClienteDelete = _dbContext.Clientes.Find(idCliente);
                 Console.WriteLine(idClienteDelete);
                 if (idClienteDelete != null)
                 {
-                    _bbancolombiaContext.Clientes.Remove(idClienteDelete);
-                    _bbancolombiaContext.SaveChanges();
+                    _dbContext.Clientes.Remove(idClienteDelete);
+                    _dbContext.SaveChanges();
                     Console.WriteLine("Cliente eliminada exitosamente");
                     message = "Cliente eliminada exitosamente";
                     return true;

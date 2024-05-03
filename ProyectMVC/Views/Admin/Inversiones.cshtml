@@ -75,7 +75,60 @@
                 });
             });
         </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('.excelGenerate-form').submit(function (e) {
+                e.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+                var form = $(this);
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: '¡No podrás revertir esto!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminarlo!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: form.attr('method'),
+                            url: form.attr('action'), // Cambiado de 'asp-action' a 'action'
+                            data: form.serialize(),
+                            success: function (response) {
+                                if (response.success) {
+                                    Swal.fire(
+                                        'Eliminado!',
+                                        response.message,
+                                        'success'
+                                    ).then((result) => {
+                                        // Redirige a la URL del archivo descargado
+                                        window.location.href = response.fileUrl;
+                                    });
+                                } else {
+                                    Swal.fire(
+                                        'Error!',
+                                        response.message,
+                                        'error'
+                                    );
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                Swal.fire(
+                                    'Error!',
+                                    'Ha ocurrido un error: ' + error,
+                                    'error'
+                                );
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
     }
+
 
 <div class="mt-5">
 
@@ -128,10 +181,19 @@
         </div>
 
 
-        <div class="d-flex justify-content-center me-5">
-            <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
-                <i class="bi bi-plus fa-floppy-disk text-primar"></i>
-            </button>
+        <div class="d-flex justify-content-end me-5">
+            <div class="me-2">
+                <form method="get" asp-action="GenerarExcelInversiones" class="export-form excelGenerate-form">
+                    <button type="submit" class="btn btn-primary mt-5 ">
+                        <i class="bi bi-file-excel fa-floppy-disk text-light"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="me-2">
+                <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
+                    <i class="bi bi-plus fa-floppy-disk text-light"></i>
+                </button>
+            </div>
         </div>
 
 
@@ -139,7 +201,7 @@
     <div class="container" style="padding: 100px;">
         <div class="container " style="text-align: center; justify-content: center;">
 
-            <table class="table">
+                <table class="table table-striped table-hover">
 
                 <thead>
                     <tr>
@@ -161,20 +223,8 @@
                                     <div class="d-flex justify-content-center  ms-3">
                                         <form method="post" asp-action="DeleteInversiones" class="delete-form ">
                                             <input type="hidden" name="IdInversion" value="@inv.IdInversion" />
-                                            <button type="submit" class="btn btn-link">
-                                                <i class="bi bi-trash3 fa-floppy-disk text-primary"></i>
-                                            </button>
-                                        </form>
-
-                                        <form method="get" asp-action="GenerarExcelInversiones" class="export-form">
-                                            <button type="submit" class="btn btn-link">
-                                                <i class="bi bi-file-excel fa-floppy-disk text-primar"></i>
-                                            </button>
-                                        </form>
-
-                                        <form method="get" asp-action="ExportarPersonasAExcel" class="export-form">
-                                            <button type="submit" class="btn btn-link ">
-                                                <i class="bi bi-plus fa-floppy-disk text-primar"></i>
+                                            <button type="submit" class="btn btn-outline-info btn-sm">
+                                                <i class="bi bi-trash3 text-dark"></i>
                                             </button>
                                         </form>
                                     </div>

@@ -218,8 +218,12 @@ namespace ProyectMVC.Controllers
         {
             var archivoInversionesList = await _dbbancolombia.Inversiones.ToListAsync();
             var nombreArchivoInversiones = $"Inversiones.xlsx";
-            return GenerarListadoDeInversiones(nombreArchivoInversiones, archivoInversionesList);
+            var fileResult = GenerarListadoDeInversiones(nombreArchivoInversiones, archivoInversionesList);
+            return await Task.FromResult(fileResult);
         }
+
+
+
 
         public FileResult GenerarListadoDeInversiones(string nombreArchivoInversiones, IEnumerable<Inversione> archivoInversionesList)
         {

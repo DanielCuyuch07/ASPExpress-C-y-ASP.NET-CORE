@@ -7,7 +7,6 @@ namespace ProyectMVC.Clases
     {
         private readonly DbbancolombiaContext _dbContext;
 
-
         public DepartamentoServices(DbbancolombiaContext context)
         {
             _dbContext = context;

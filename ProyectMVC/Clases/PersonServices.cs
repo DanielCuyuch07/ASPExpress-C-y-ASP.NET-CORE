@@ -1,8 +1,16 @@
-﻿using ProyectMVC.Interfaces;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.AspNetCore.Mvc;
+using ProyectMVC.Interfaces;
 using ProyectMVC.Models;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Previewer;
+using System.ComponentModel;
 
 namespace ProyectMVC.Clases
 {
+
+
     public class PersonServices : IPersona
     {
         private readonly DbbancolombiaContext _dbContext;
@@ -17,11 +25,8 @@ namespace ProyectMVC.Clases
             try
             {
                 return _dbContext.Personas.ToList();
-
             }catch (Exception ex) {
-
                 return new List<Persona>();
-
             }
         }
 

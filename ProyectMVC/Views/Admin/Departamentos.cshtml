@@ -126,13 +126,21 @@
         </div>
 
         <!-- Botón que abre el modal -->
-        <div class="d-flex justify-content-center me-5">
-            <button type="button" class="btn btn-primary  mt-5 " data-toggle="modal" data-target=".bd-example-modal-lg">
-                <i class="bi bi-plus fa-floppy-disk text-primar"></i>
 
-            </button>
-       </div>
-
+        <div class="d-flex justify-content-end me-5">
+            <div class="me-2">
+                <form method="get" asp-action="ExportarDepartamentosExcel" class="export-form">
+                    <button type="submit" class="btn btn-primary mt-5 ">
+                        <i class="bi bi-file-excel fa-floppy-disk text-light"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="me-2">
+                <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
+                    <i class="bi bi-plus fa-floppy-disk text-light"></i>
+                </button>
+            </div>
+        </div>
 
 
 
@@ -141,7 +149,7 @@
     <div class="container text-center" style="padding: 70px;">
         <div class="container-sm" style="text-align: center; justify-content: center;">
 
-            <table class="table text-center">
+                <table class="table table-striped table-hover">
 
                 <thead>
                     <tr class="text-center">
@@ -162,22 +170,10 @@
                                     <div class="d-flex justify-content-center">
                                         <form method="post" asp-action="DeleteDepartamentos" class="delete-form">
                                               <input type="hidden" name="idDepartamento" value="@departament.IdDepartamento" />
-                                              <button type="submit" class="btn btn-link">
-                                            <i class="bi bi-trash3 fa-floppy-disk text-primary"></i>
+                                            <button type="submit" class="btn btn-outline-info btn-sm">
+                                                <i class="bi bi-trash3 text-dark"></i>
                                         </button>
                                     </form>
-
-                                        <form method="get" asp-action="ExportarDepartamentosExcel" class="export-form">
-                                                <button type="submit" class="btn btn-link">
-                                                <i class="bi bi-file-excel fa-floppy-disk text-primar"></i>
-                                            </button>
-                                        </form>
-
-                                        <form method="get" asp-action="ExportarPersonasAExcel" class="export-form">
-                                            <button type="submit" class="btn btn-link ">
-                                                <i class="bi bi-plus fa-floppy-disk text-primar"></i>
-                                            </button>
-                                        </form>
                                     </div>
                                 </td>
                             </tr>

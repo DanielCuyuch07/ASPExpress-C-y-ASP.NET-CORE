@@ -11,6 +11,11 @@ namespace ProyectMVC.Recursos
 
             StringBuilder sb = new StringBuilder();
 
+            if (clave == null)
+            {
+                throw new ArgumentNullException(nameof(clave));
+            }
+
             using (SHA256 hash = SHA256Managed.Create())
             {
                 Encoding enc = Encoding.UTF8;

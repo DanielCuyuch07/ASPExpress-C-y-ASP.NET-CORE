@@ -6,17 +6,17 @@ namespace ProyectMVC.Clases
 {
     public class InversionesServives : IInversiones
     {
-        private readonly DbbancolombiaContext _dbbancolombiaContext;
+        private readonly DbbancolombiaContext _dbContext;
 
         public InversionesServives(DbbancolombiaContext context)
         {
-            _dbbancolombiaContext = context;
+            _dbContext = context;
         }
 
         public List<Inversione> GetInversiones() {
             try
             {
-                return _dbbancolombiaContext.Inversiones.ToList();
+                return _dbContext.Inversiones.ToList();
 
             } catch (Exception ex)
             {
@@ -30,16 +30,16 @@ namespace ProyectMVC.Clases
             try
             {
                 // Intenta encontrar la inversión por su ID
-                var idInversionesDelete = _dbbancolombiaContext.Inversiones.Find(IdInversion);
+                var idInversionesDelete = _dbContext.Inversiones.Find(IdInversion);
 
                 // Verifica si se encontró la inversión
                 if (idInversionesDelete != null)
                 {
                     // Elimina la inversión
-                    _dbbancolombiaContext.Inversiones.Remove(idInversionesDelete);
+                    _dbContext.Inversiones.Remove(idInversionesDelete);
 
                     // Guarda los cambios en la base de datos
-                    _dbbancolombiaContext.SaveChanges();
+                    _dbContext.SaveChanges();
 
                     // Indica que la inversión fue eliminada con éxito
                     Console.WriteLine("Inversión eliminada exitosamente");

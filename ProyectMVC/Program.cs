@@ -1,6 +1,7 @@
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Packaging;
 using ProyectMVC.Clases;
 using ProyectMVC.Interfaces;
 using ProyectMVC.Interfaces.Contrato;
@@ -13,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
+
 
 // Inicializar cadena de conexion
 builder.Services.AddDbContext<DbbancolombiaContext>(options =>
@@ -50,6 +52,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+
 
 
 // Redirige solicitudes http (Aumentando su seguridad)

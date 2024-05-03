@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>ViewPersona</title>
 </head>
+
 <body>
     <!-- SWEET ALERT  -->
     @section scripts {
@@ -69,9 +70,8 @@
                     });
                 });
             });
-   </script>
-  }
-
+            </script>
+         }
 
     <div class="mt-5">
 
@@ -130,9 +130,12 @@
 
                         <div class="modal-footer d-flex justify-content-between mt-5">
                             <div class="mr-auto ">
-                                <button type="button" class="btn btn-danger" placement="top">
-                                    <a href=""><i class="bi bi-x-circle text-white"></i></a>
-                                </button>
+                                <div class="mr-auto">
+                                    <a href="#" class="btn btn-danger" data-dismiss="modal">
+                                        <i class="bi bi-x-circle text-white"></i>
+                                    </a>
+                                </div>
+
 
 
                             </div>
@@ -150,16 +153,30 @@
 
 
 
-        <div class="d-flex justify-content-center me-5">
-            <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
-                <i class="bi bi-plus fa-floppy-disk text-primar"></i>
-            </button>
+        <div class="d-flex justify-content-end  me-5">
+            <div class="me-2">
+                <form method="get" asp-action="ExportarPersonasAExcel" class="export-form">
+                    <button type="submit" class="btn btn-primary mt-5">
+                        <i class="bi bi-file-excel fa-floppy-disk text-light"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="me-2">
+                <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
+                    <i class="bi bi-plus fa-floppy-disk text-light"></i>
+                </button>
+            </div>
         </div>
 
 
+
+
+
+
+
         <div class="container " style="padding: 100px;">
-            <div class="container " style="text-align: center; justify-content: center;">
-                <table class="table ">
+            <div class="container  ">
+                <table class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
@@ -175,8 +192,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            @foreach (var person in Model)
-                            {
+                        @foreach (var person in Model)
+                        {
                             <tr>
                                 <td>@person.IdPersona</td>
                                 <td>@person.FullName</td>
@@ -187,35 +204,21 @@
                                 <td>@person.AccountNumber</td>
                                 <td>
 
-                                    <div class="d-flex ">
-                                        <form method="post" asp-action="DeletePersona" class="delete-form ">
+                                    <div class="d-flex ms-2">
+                                        <form method="post" asp-action="DeletePersona" class="delete-form me-2">
                                             <input type="hidden" name="idPersona" value="@person.IdPersona" />
-                                            <button type="submit" class="btn btn-link">
-                                                <i class="bi bi-trash3 fa-floppy-disk text-primary"></i>
-                                            </button>
-                                        </form>
-
-                                        <form method="get" asp-action="ExportarPersonasAExcel" class="export-form">
-                                            <button type="submit" class="btn btn-link">
-                                                <i class="bi bi-file-excel fa-floppy-disk text-primar"></i>
-                                            </button>
-                                        </form>
-
-                                        <form method="get" class="export-form">
-                                            <button type="submit" class="btn btn-link ">
-                                                <i class="bi bi-plus fa-floppy-disk text-primar"></i>
+                                            <button type="submit" class="btn btn-outline-info btn-sm">
+                                                <i class="bi bi-trash3 text-dark"></i>
                                             </button>
                                         </form>
                                     </div>
                                 </td>
                             </tr>
-                            }
+                        }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-
 </body>
 </html>
