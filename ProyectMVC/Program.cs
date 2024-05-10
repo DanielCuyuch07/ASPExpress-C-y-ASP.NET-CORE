@@ -10,6 +10,9 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddEndpointsApiExplorer();
@@ -40,7 +43,6 @@ builder.Services.AddScoped<IUsuarioServices, UsuarioService>();
 builder.Services.AddScoped<IDepartamentos, DepartamentoServices>();
 builder.Services.AddScoped<IInversiones, InversionesServives>();
 builder.Services.AddScoped<IClientes, ClientesServices>();
-// Agrega el servicio IHttpContextAccessor
 builder.Services.AddHttpContextAccessor();
 
 
@@ -68,6 +70,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Inicio}/{action=IniciarSesion}/{id?}");
+    IWebHostEnvironment env = app.Environment;
+    Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa/Windows");
 
 // Ejecuta la aplicacion 
 app.Run();

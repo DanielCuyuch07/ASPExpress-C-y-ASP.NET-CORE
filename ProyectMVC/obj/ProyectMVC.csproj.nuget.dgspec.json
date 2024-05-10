@@ -69,7 +69,11 @@
             },
             "QuestPDF": {
               "target": "Package",
-              "version": "[2024.3.3, )"
+              "version": "[2023.12.6, )"
+            },
+            "Rotativa.AspNetCore": {
+              "target": "Package",
+              "version": "[1.3.2, )"
             }
           },
           "imports": [

@@ -1,15 +1,15 @@
-﻿using ClosedXML.Excel;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectMVC.Clases;
 using ProyectMVC.Interfaces;
 using ProyectMVC.Models;
-using System.Data;
+using ClosedXML.Excel;
 
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Previewer;
-using QuestPDF.Infrastructure;
+
 
 namespace ProyectMVC.Controllers
 {
@@ -17,11 +17,13 @@ namespace ProyectMVC.Controllers
     {
         private readonly IPersona _persona;
         private readonly DbbancolombiaContext _dbContext;
+        private readonly IWebHostEnvironment _host;
 
-        public PersonalController(IPersona persona, DbbancolombiaContext dbContext)
+        public PersonalController(IPersona persona, DbbancolombiaContext dbContext, IWebHostEnvironment host)
         {
             _persona = persona;
             _dbContext = dbContext;
+            _host = host;
         }
 
         public IActionResult ViewPersona()
@@ -58,89 +60,117 @@ namespace ProyectMVC.Controllers
         {
             var personas = await _dbContext.Personas.ToListAsync();
             var nombreArchivo = $"Personas.xlsx";
-            return GenerarExcel(nombreArchivo, personas);
-        }
-
-        private FileResult GenerarExcel(string nombreArchivo, IEnumerable<Persona> personas)
-        {
-            DataTable dataTable = new DataTable("Personas");
-            dataTable.Columns.AddRange(new DataColumn[]
-            {
-                new DataColumn("id"),
-                new DataColumn("FullName"),
-                new DataColumn("Phone"),
-                new DataColumn("AddressPerson"),
-                new DataColumn("Email"),
-                new DataColumn("Dpi"),
-                new DataColumn("AccountNumber"),
-            });
-
-            foreach (var persona in personas)
-            {
-                dataTable.Rows.Add(
-                    persona.IdPersona,
-                    persona.FullName,
-                    persona.Phone,
-                    persona.AddressPerson,
-                    persona.Email,
-                    persona.Dpi,
-                    persona.AccountNumber
-                );
-            }
-
-            using (XLWorkbook wb = new XLWorkbook())
-            {
-                wb.Worksheets.Add(dataTable);
-                using (MemoryStream stream = new MemoryStream())
-                {
-                    wb.SaveAs(stream);
-                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                    nombreArchivo);
-                }
-            }
-
+            return _persona.GererarListadoPersonas(nombreArchivo, personas);
         }
 
         [HttpPost]
         public IActionResult DescargarPDF()
         {
+            var personas = _dbContext.Personas.ToList();            // Crear el documento PDF
 
-            // code in your main method
-             Document.Create(container =>
+            var document = Document.Create(contenedor =>
             {
-                container.Page(page =>
+                contenedor.Page(page =>
                 {
-                    page.Size(PageSizes.A4);
-                    page.Margin(2, Unit.Centimetre);
-                    page.PageColor(Colors.White);
-                    page.DefaultTextStyle(x => x.FontSize(20));
+                    page.Margin(20);
 
-                    page.Header()
-                        .Text("Hello PDF!")
-                        .SemiBold().FontSize(36).FontColor(Colors.Blue.Medium);
+                    /* Header */
+                    page.Header().ShowOnce().Row(row =>
+                    {
+                        var rutaImage = Path.Combine(_host.WebRootPath, "img/img-logo1.png");
+                        byte[] imageData = System.IO.File.ReadAllBytes(rutaImage);
+                        row.ConstantItem(170).Image(imageData);
 
-                    page.Content()
-                        .PaddingVertical(1, Unit.Centimetre)
-                        .Column(x =>
+
+
+                        row.RelativeItem().Column(col =>
                         {
-                            x.Spacing(20);
 
-                            x.Item().Text(Placeholders.LoremIpsum());
-                            x.Item().Image(Placeholders.Image(200, 100));
                         });
 
-                    page.Footer()
-                        .AlignCenter()
-                        .Text(x =>
+                        row.RelativeItem().Column(col =>
                         {
-                            x.Span("Page ");
-                            x.CurrentPageNumber();
+                            col.Item().AlignCenter().Padding(50).Text("LISTADO DEL PERSONAL ").Bold().FontSize(14);
                         });
+                    });
+
+                    /* Contenido Principal */
+                    page.Content().PaddingVertical(0).Column(col1 =>
+                    {
+
+                        col1.Item().LineHorizontal(0.5f);
+
+                        /*Tabla principal */
+                        col1.Item().Table(tabla =>
+                        {
+                            tabla.ColumnsDefinition(columns =>
+                            {
+                                columns.RelativeColumn(1); // Ancho relativo de la primera columna
+                                columns.RelativeColumn(3); // Ancho relativo de la segunda columna
+                                columns.RelativeColumn(3); // Ancho relativo de la tercera columna
+
+                                columns.RelativeColumn(3); // Ancho relativo de la cuarta columna
+                                columns.RelativeColumn(3); // Ancho relativo de la séptima columna
+                            });
+
+                            tabla.Header(header =>
+                            {
+                                header.Cell().Background("#257272").Padding(2).Text("Id").FontColor("#fff");
+                                header.Cell().Background("#257272").Padding(2).Text("Full Name").FontColor("#fff");
+                                header.Cell().Background("#257272").Padding(2).Text("Phone").FontColor("#fff");
+                                header.Cell().Background("#257272").Padding(2).Text("Adrress").FontColor("#fff");
+                                header.Cell().Background("#257272").Padding(3).Text("Email").FontColor("#fff");
+                            });
+
+                            // Agregar filas de personas a la tabla
+                            personas.ForEach(persona =>
+                            {
+                                tabla.Cell().Padding(5).Text(persona.IdPersona.ToString()).FontSize(10);
+                                tabla.Cell().Padding(5).Text(persona.FullName).FontSize(10);
+                                tabla.Cell().Padding(5).Text(persona.Phone).FontSize(10);
+                                tabla.Cell().Padding(5).Text(persona.AddressPerson).FontSize(10);
+                                tabla.Cell().Padding(5).Text(persona.Email).FontSize(10);
+                                //tabla.Cell().Text(persona.Dpi).FontSize(10);
+                            });
+
+                        });
+
+                        col1.Item().PaddingBottom(100);
+
+
+                        if (1 == 1)
+                            col1.Item().Background(QuestPDF.Helpers.Colors.Grey.Lighten3).Padding(10)
+                            .Column(column =>
+                            {
+                                column.Item().Text("Comentarios").FontSize(14);
+                                column.Item().Text(Placeholders.LoremIpsum());
+                                column.Spacing(5);
+                            });
+
+                        page.Footer()
+        .AlignRight()
+        .Text(txt =>
+        {
+            txt.Span("Pagina ").FontSize(10);
+            txt.CurrentPageNumber().FontSize(10);
+            txt.Span(" de ").FontSize(10);
+            txt.TotalPages().FontSize(10);
+        });
+
+                        col1.Spacing(10);
+                    });
                 });
-            }).GeneratePdf("hello.pdf");
+            });
 
-            Stream stream = new MemoryStream();
-            return File(stream, "application/pdf", "detalleventa.pdf");
+            // Generar el documento PDF en un arreglo de bytes
+            var pdfBytes = document.GeneratePdf();
+
+
+            // Devolver el archivo PDF como una descarga
+            return new FileContentResult(pdfBytes, "application/pdf")
+            {
+                FileDownloadName = "listado_personal.pdf"
+            };
         }
     }
 }

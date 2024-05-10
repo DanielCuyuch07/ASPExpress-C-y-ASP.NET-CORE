@@ -1,4 +1,5 @@
-﻿using ProyectMVC.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProyectMVC.Models;
 
 namespace ProyectMVC.Interfaces
 {
@@ -8,5 +9,6 @@ namespace ProyectMVC.Interfaces
 
         bool DeleteClientes(int idCliente, out string message);
 
+        FileResult GenerarListaClientes(string nombreArchivoCliente, IEnumerable<Cliente> archivoClienteList);
     }
 }

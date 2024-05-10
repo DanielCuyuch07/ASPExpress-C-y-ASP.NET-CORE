@@ -1,4 +1,5 @@
-﻿using ProyectMVC.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProyectMVC.Models;
 
 namespace ProyectMVC.Interfaces
 {
@@ -8,6 +9,7 @@ namespace ProyectMVC.Interfaces
 
         bool DeleteInversiones(int IdInversion, out string message);
 
+        FileResult GenerarListadoDeInversiones(string nombreArchivoInversiones, IEnumerable<Inversione> archivoInversionesList);
 
     }
 }

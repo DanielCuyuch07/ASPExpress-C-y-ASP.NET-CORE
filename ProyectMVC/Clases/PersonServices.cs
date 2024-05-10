@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
+﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.AspNetCore.Mvc;
 using ProyectMVC.Interfaces;
 using ProyectMVC.Models;
@@ -6,6 +7,7 @@ using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Previewer;
 using System.ComponentModel;
+using System.Data;
 
 namespace ProyectMVC.Clases
 {
@@ -19,6 +21,7 @@ namespace ProyectMVC.Clases
         {
             _dbContext = context;
         }
+
 
         public List<Persona> GetPerson()
         {
@@ -62,5 +65,50 @@ namespace ProyectMVC.Clases
                 return false;
             }
         }
+
+        public FileResult GererarListadoPersonas(string nombreArchivo, IEnumerable<Persona> personas)
+        {
+            DataTable dataTable = new DataTable("Personas");
+            dataTable.Columns.AddRange(new DataColumn[]
+{
+                new DataColumn("id"),
+                new DataColumn("FullName"),
+                new DataColumn("Phone"),
+                new DataColumn("AddressPerson"),
+                new DataColumn("Email"),
+                new DataColumn("Dpi"),
+                new DataColumn("AccountNumber"),
+            });
+
+            foreach (var persona in personas)
+            {
+                dataTable.Rows.Add(
+                    persona.IdPersona,
+                    persona.FullName,
+                    persona.Phone,
+                    persona.AddressPerson,
+                    persona.Email,
+                    persona.Dpi,
+                    persona.AccountNumber
+                );
+            }
+
+
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dataTable);
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    stream.Seek(0, SeekOrigin.Begin); // Asegurarse de que el puntero de lectura está al inicio del flujo
+                    return new FileContentResult(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+                    {
+                        FileDownloadName = nombreArchivo
+                    };
+                }
+            }
+        }
+
     }
+    
 }

@@ -1,4 +1,5 @@
-﻿using ProyectMVC.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProyectMVC.Models;
 
 namespace ProyectMVC.Interfaces
 {
@@ -6,6 +7,8 @@ namespace ProyectMVC.Interfaces
     {
         List<Departamento> GetDepartamentos();
         bool DeleteDepartamentos(int idDepartamento, out string message);
+
+        FileResult GenerarListaDepartamento(string nombreArchivo, IEnumerable<Departamento> departamentos);
        
     }
 }
