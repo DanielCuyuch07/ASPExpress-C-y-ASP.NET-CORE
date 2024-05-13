@@ -1,0 +1,90 @@
+/*************** Codigo PDF ***********************/
+
+        //[HttpPost]
+
+        //public IActionResult DescargarPDFInversiones()
+        //{
+        //    try
+        //    {
+        //        return _inversiones.DescargarPDF();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Manejar cualquier excepción y devolver un mensaje de error
+        //        return Json(new { success = false, message = "Error interno del servidor al generar el PDF: " + ex.Message });
+        //    }
+        //}
+
+/*************  Codigo Excel ****************************/
+
+        //public FileResult GenerarListadoDeInversiones(string nombreArchivoInversiones, IEnumerable<Inversione> archivoInversionesList)
+        //{
+        //    DataTable dataColumn = new DataTable("archivoInversionesList");
+        //    dataColumn.Columns.AddRange(new DataColumn[]
+        //    {
+        //        new DataColumn("Id Inversiones"),
+        //        new DataColumn("Inversiones"),
+        //    });
+
+        //    foreach (var inversiones in archivoInversionesList)
+        //    {
+        //        dataColumn.Rows.Add(
+        //            inversiones.IdInversion,
+        //            inversiones.NombreInversion
+        //        );
+        //    }
+
+        //    using (XLWorkbook wb = new XLWorkbook())
+        //    {
+        //        wb.Worksheets.Add(dataColumn);
+        //        using (MemoryStream stream = new MemoryStream())
+        //        {
+        //            wb.SaveAs(stream);
+        //            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        //            nombreArchivoInversiones);
+        //        }
+        //    }
+
+
+        //}
+
+
+        //private FileResult GenerarExcelClientes(string nombreArchivoCliente, IEnumerable<Cliente> archivoClienteList)
+        //{
+        //    DataTable dataTable = new DataTable("archivoClienteList");
+        //    dataTable.Columns.AddRange(new DataColumn[]
+        //    {
+        //        new DataColumn("IdCliente"),
+        //        new DataColumn("NombreCliente"),
+        //        new DataColumn("NumeroDeCuenta"),
+        //        new DataColumn("CorreoElectronico"),
+        //        new DataColumn("Saldo"),
+        //        new DataColumn("IdInversionNavigation"),
+        //    });
+
+        //    foreach (var clientes in archivoClienteList)
+        //    {
+        //        dataTable.Rows.Add(
+        //            clientes.IdCliente,
+        //            clientes.NombreCliente,
+        //            clientes.NumeroDeCuenta,
+        //            clientes.CorreoElectronico, 
+        //            clientes.Saldo,
+        //            clientes.IdInversion, 
+        //            clientes.IdInversionNavigation
+
+        //        );
+        //    }
+
+        //    using (XLWorkbook wb = new XLWorkbook())
+        //    {
+        //        wb.Worksheets.Add(dataTable);
+        //        using (MemoryStream stream = new MemoryStream())
+        //        {
+        //            wb.SaveAs(stream);
+        //            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        //            nombreArchivoCliente);
+        //        }
+        //    }
+
+        //}

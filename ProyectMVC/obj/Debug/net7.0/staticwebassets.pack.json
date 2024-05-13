@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\img\\img-login.jpg"
     },
     {
+      "Id": "D:\\Proyectos2024\\Proyectos en procesos\\ASP.NET CORE\\Proyecto Web MVC\\ProyectMVC\\wwwroot\\img\\img-logo1.png",
+      "PackagePath": "staticwebassets\\img\\img-logo1.png"
+    },
+    {
       "Id": "D:\\Proyectos2024\\Proyectos en procesos\\ASP.NET CORE\\Proyecto Web MVC\\ProyectMVC\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

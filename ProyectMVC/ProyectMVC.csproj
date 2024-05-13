@@ -6,13 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\img\img-logo1.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Views\Shared\img\img-tecnologia.jpg" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.2" />
@@ -24,7 +17,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.12" />
     <PackageReference Include="QuestPDF" Version="2023.12.6" />
-    <PackageReference Include="Rotativa.AspNetCore" Version="1.3.2" />
   </ItemGroup>
 
   <ItemGroup>

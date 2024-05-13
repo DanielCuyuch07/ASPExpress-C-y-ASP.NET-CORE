@@ -178,19 +178,25 @@
             </div>
         </div>
 
+        <div class="me-5 text-center">
+            <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <i class="bi bi-plus fa-floppy-disk text-light"></i>
+            </button>
+        </div>
+
 
         <div class="d-flex justify-content-end me-5">
-            <div class="me-2">
+            <div class="me-5">
                 <form method="get" asp-action="GenerarExcelInversiones" class="export-form excelGenerate-form">
                     <button type="submit" class="btn btn-primary mt-5 ">
                         <i class="bi bi-file-excel fa-floppy-disk text-light"></i>
                     </button>
                 </form>
             </div>
-            <div class="me-2">
-                <form asp-action="DescargarPDF" method="post">
+            <div class="me-5">
+                <form asp-action="DescargarPDFInversiones" method="post">
                     <button type="submit" class="btn btn-primary mt-5">
-                        <i class="bi bi-plus fa-floppy-disk text-light"></i> Descargar PDF
+                        <i class="bi bi-file-pdf fa-floppy-disk text-light"></i>
                     </button>
                 </form>
 
@@ -199,7 +205,7 @@
 
 
 
-    <div class="container" style="padding: 100px;">
+    <div class="container" style="padding: 70px;">
         <div class="container " style="text-align: center; justify-content: center;">
 
                 <table class="table table-striped table-hover">

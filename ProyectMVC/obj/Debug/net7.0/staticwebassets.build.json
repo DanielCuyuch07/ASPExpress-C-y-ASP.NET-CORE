@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mCo5obTk76WY7l4nj/qC0cg9gWFD1YUazoYrS0m8rNM=",
+  "Hash": "oWWt4FYVfv9wnvrQMnyRAj/GqIXvvmPd5+ADz796F3g=",
   "Source": "ProyectMVC",
   "BasePath": "_content/ProyectMVC",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\img-login.jpg"
+    },
+    {
+      "Identity": "D:\\Proyectos2024\\Proyectos en procesos\\ASP.NET CORE\\Proyecto Web MVC\\ProyectMVC\\wwwroot\\img\\img-logo1.png",
+      "SourceId": "ProyectMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Proyectos2024\\Proyectos en procesos\\ASP.NET CORE\\Proyecto Web MVC\\ProyectMVC\\wwwroot\\",
+      "BasePath": "_content/ProyectMVC",
+      "RelativePath": "img/img-logo1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\img-logo1.png"
     },
     {
       "Identity": "D:\\Proyectos2024\\Proyectos en procesos\\ASP.NET CORE\\Proyecto Web MVC\\ProyectMVC\\wwwroot\\js\\site.js",

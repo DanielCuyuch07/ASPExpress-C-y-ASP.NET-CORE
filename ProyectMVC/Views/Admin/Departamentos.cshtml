@@ -79,8 +79,6 @@
 
     
 <div class=" mt-5">
-
-        ;
         <h2 class="fs-3 text-center"><b>ENTITY DEPARTAMENT</b> </h2>
 
         <!-- Estructura del modal -->
@@ -127,20 +125,32 @@
 
         <!-- Botón que abre el modal -->
 
+        <div class="me-5 text-center">
+            <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <i class="bi bi-plus fa-floppy-disk text-light"></i>
+            </button>
+        </div>
+
         <div class="d-flex justify-content-end me-5">
-            <div class="me-2">
+            <div class="me-5">
                 <form method="get" asp-action="ExportarDepartamentosExcel" class="export-form">
                     <button type="submit" class="btn btn-primary mt-5 ">
                         <i class="bi bi-file-excel fa-floppy-disk text-light"></i>
                     </button>
                 </form>
             </div>
-            <div class="me-2">
-                <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
-                    <i class="bi bi-plus fa-floppy-disk text-light"></i>
-                </button>
+
+            <div class="me-5">
+                <form asp-action="DescargarPDFDepartamentos" method="post">
+                    <button type="submit" class="btn btn-primary mt-5">
+                        <i class="bi bi-file-pdf fa-floppy-disk text-light"></i> 
+                    </button>
+                </form>
             </div>
         </div>
+
+
+
 
 
 

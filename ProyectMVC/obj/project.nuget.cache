@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dQdl15exL21YK5k67q6W89Nf2sgy8+tlMoYrlxfap9m04zB6Fz73bb2ZIya0Ol+nA/8rsolj54CUWOfde+me3Q==",
+  "dgSpecHash": "bmkDR2uUkn13+1ITGh61tqeU0iJTDKzJ+yoZMGdLUH+rA6ghYbT+yPCidEmJ7MQpqpH8qSpIMB3W09OxsMTpgQ==",
   "success": true,
   "projectFilePath": "D:\\Proyectos2024\\Proyectos en procesos\\ASP.NET CORE\\Proyecto Web MVC\\ProyectMVC\\ProyectMVC.csproj",
   "expectedPackageFiles": [
@@ -135,7 +135,6 @@
     "C:\\Users\\danie\\.nuget\\packages\\nuget.protocol\\6.6.1\\nuget.protocol.6.6.1.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\nuget.versioning\\6.6.1\\nuget.versioning.6.6.1.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\questpdf\\2023.12.6\\questpdf.2023.12.6.nupkg.sha512",
-    "C:\\Users\\danie\\.nuget\\packages\\rotativa.aspnetcore\\1.3.2\\rotativa.aspnetcore.1.3.2.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
