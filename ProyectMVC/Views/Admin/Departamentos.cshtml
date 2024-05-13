@@ -74,6 +74,14 @@
                     });
                 });
             });
+
+            $(document).ready(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+                $('[data-toggle="tooltip"]').tooltip('hide');
+
+            });
+
+
         </script>
     }
 
@@ -126,7 +134,7 @@
         <!-- Botón que abre el modal -->
 
         <div class="me-5 text-center">
-            <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
+            <button type="button" class="btn btn-primary mt-5" data-toggle="tooltip" data-placement="bottom" title="Agregar Departamentos">
                 <i class="bi bi-plus fa-floppy-disk text-light"></i>
             </button>
         </div>
@@ -134,7 +142,7 @@
         <div class="d-flex justify-content-end me-5">
             <div class="me-5">
                 <form method="get" asp-action="ExportarDepartamentosExcel" class="export-form">
-                    <button type="submit" class="btn btn-primary mt-5 ">
+                    <button type="submit" class="btn btn-primary mt-5 " data-toggle="tooltip" data-placement="top" title="Generar Excel">
                         <i class="bi bi-file-excel fa-floppy-disk text-light"></i>
                     </button>
                 </form>
@@ -142,7 +150,7 @@
 
             <div class="me-5">
                 <form asp-action="DescargarPDFDepartamentos" method="post">
-                    <button type="submit" class="btn btn-primary mt-5">
+                    <button type="submit" class="btn btn-primary mt-5" data-toggle="tooltip" data-placement="top" title="Generar PDF">
                         <i class="bi bi-file-pdf fa-floppy-disk text-light"></i> 
                     </button>
                 </form>
@@ -194,6 +202,11 @@
         </div>
     </div>
 </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
