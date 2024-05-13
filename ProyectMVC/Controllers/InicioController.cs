@@ -12,10 +12,12 @@ namespace ProyectMVC.Controllers
     {
 
         private readonly IUsuarioServices _usuarioServices;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public InicioController(IUsuarioServices usuarioServices)
+        public InicioController(IUsuarioServices usuarioServices, IWebHostEnvironment webHostEnvironment)
         {
             _usuarioServices = usuarioServices;
+            _webHostEnvironment = webHostEnvironment;
         }
 
 

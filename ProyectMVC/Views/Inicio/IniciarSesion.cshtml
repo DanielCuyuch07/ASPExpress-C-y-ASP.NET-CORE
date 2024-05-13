@@ -14,25 +14,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
-<body style="background-image: url('../../img/img-documentos.jpg')">
+
+<body style="background-image: url('img/img-login-portada3.jpg')">
     <section>
         <div class="container">
 
             <div class="row justify-content-center">
                 <div class="col-md-6 mb-5 text-center ">
-                    <!-- Tu contenido aquí si es necesario -->
                 </div>
             </div>
 
             <div class="row justify-content-center align-items-center mt-5">
-                <div class="col-md-6 col-lg-4 mt-3">
-                    <div class="login-wrap p-0">
+                <div class="col-md-6 col-lg-4 mt-4">
 
-                        <h1 class="text-center mb-4 fs-3">LOGIN</h1>
+                    <h2 class="text-center mb-4 text-white fw-bold ">LOGIN</h2>
 
+                    <div class="login-wrap p-0 mt-5">
                         <form asp-controller="Inicio" asp-action="IniciarSesion" method="post" class="" novalidate>
-                            <div class="form mb-3">
-                                <label for="correo"><b>Correo</b></label>
+                            <div class="form mb-4">
+                                <label for="correo" class="text-white h5"><b>Correo Electronico </b></label>
 
                                 <input type="text"
                                        class="form-control mt-3"
@@ -45,8 +45,8 @@
                                 </div>
                             </div>
 
-                            <div class="form mb-3">
-                                <label for="clave"><b>Password</b></label>
+                            <div class="form mb-4">
+                                <label for="clave" class="text-white h5" ><b>Password</b></label>
 
                                 <input type="password"
                                        class="form-control mt-3"
@@ -67,8 +67,8 @@
                             </div>
 
                             <div class="mt-4">
-                                <div class="text-center">
-                                    ¿No tienes una cuenta? <a href="@Url.Action("Registrarse","Inicio")">Regístrate!</a>
+                                <div class="text-center text-white">
+                                    ¿No tienes una cuenta? <a class="text-white" href="@Url.Action("Registrarse","Inicio")">Regístrate!</a>
                                 </div>
                             </div>
                         </form>

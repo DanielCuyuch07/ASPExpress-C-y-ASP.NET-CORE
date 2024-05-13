@@ -75,6 +75,11 @@
                     });
                 });
             });
+
+            $(document).ready(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+
+            });
         </script>
     }
 
@@ -148,7 +153,7 @@
         </div>
 
         <div class="me-5 text-center">
-            <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
+            <button type="button" class="btn btn-primary mt-5" data-target=".bd-example-modal-lg" data-toggle="tooltip" data-placement="bottom" title="Agregar Clientes ">
                 <i class="bi bi-plus fa-floppy-disk text-light"></i>
             </button>
         </div>
@@ -156,14 +161,14 @@
 
         <div class="d-flex justify-content-end me-5">
             <div class="me-5">
-                <form method="get" asp-action="ExportacionClientesExcel" class="export-form">
+                <form method="get" asp-action="ExportacionClientesExcel" class="export-form" data-toggle="tooltip" data-placement="top" title="Generar Excel">
                     <button type="submit" class="btn btn-primary mt-5 ">
                         <i class="bi bi-file-excel fa-floppy-disk text-light"></i>
                     </button>
                 </form>
             </div>
             <div class="me-5">
-                <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <button type="button" class="btn btn-primary mt-5"data-target=".bd-example-modal-lg" data-toggle="tooltip" data-placement="top" title="Generar PDF">
                     <i class="bi bi-file-pdf fa-floppy-disk text-light"></i>
                 </button>
             </div>
