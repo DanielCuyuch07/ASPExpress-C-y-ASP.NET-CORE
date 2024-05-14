@@ -163,7 +163,11 @@
         </div>
 
         <div class="me-5 text-center">
-            <button type="button" class="btn btn-primary mt-5" data-toggle="tooltip" data-placement="bottom" title="Agregar Gente">
+            <button type="button"
+                    class="btn btn-primary mt-5"
+                    data-toggle="tooltip" 
+                    data-bs-placement="bottom" 
+                    title="Agregar Personal">
                 <i class="bi bi-plus fa-floppy-disk text-light"></i>
             </button>
         </div>
@@ -229,7 +233,11 @@
                                     <div class="d-flex ms-2">
                                         <form method="post" asp-action="DeletePersona" class="delete-form me-2">
                                             <input type="hidden" name="idPersona" value="@person.IdPersona" />
-                                            <button type="submit" class="btn btn-outline-info btn-sm">
+                                            <button type="submit" 
+                                                    class="btn btn-outline-info btn-sm"
+                                                    data-toggle="tooltip"
+                                                    data-bs-placement="right"
+                                                    title="Eliminar Persona">
                                                 <i class="bi bi-trash3 text-dark"></i>
                                             </button>
                                         </form>

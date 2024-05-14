@@ -185,7 +185,11 @@
         </div>
 
         <div class="me-5 text-center">
-            <button type="button" class="btn btn-primary mt-5" data-toggle="tooltip" data-placement="bottom" title="Agregar Inversiones">
+            <button type="button" 
+                    class="btn btn-primary mt-5" 
+                    data-toggle="tooltip" 
+                    data-bs-placement="bottom" 
+                    title="Agregar Inversion">
                 <i class="bi bi-plus fa-floppy-disk text-light"></i>
             </button>
         </div>
@@ -194,7 +198,12 @@
         <div class="d-flex justify-content-end me-5">
             <div class="me-5">
                 <form method="get" asp-action="GenerarExcelInversiones" class="export-form excelGenerate-form">
-                    <button type="submit" class="btn btn-primary mt-5 " data-toggle="tooltip" data-placement="top" title="Generar Excel">
+                    <button type="submit" 
+                            class="btn btn-primary mt-5 "
+                            data-toggle="tooltip"
+                            data-placement="right"
+                            data-bs-custom-class="custom-tooltip-class"
+                            title="Generar Excel">
                         <i class="bi bi-file-excel fa-floppy-disk text-light"></i>
                     </button>
                 </form>
@@ -236,7 +245,11 @@
                                     <div class="d-flex justify-content-center  ms-3">
                                         <form method="post" asp-action="DeleteInversiones" class="delete-form ">
                                             <input type="hidden" name="IdInversion" value="@inv.IdInversion" />
-                                            <button type="submit" class="btn btn-outline-info btn-sm">
+                                            <button type="submit" class="btn btn-outline-info btn-sm"
+                                                    data-toggle="tooltip"
+                                                    data-bs-placement="right"
+                                                    data-bs-custom-class="custom-tooltip-class"
+                                                    title="Eliminar inversion">
                                                 <i class="bi bi-trash3 text-dark"></i>
                                             </button>
                                         </form>
@@ -250,10 +263,9 @@
         </div>
     </div>
 </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

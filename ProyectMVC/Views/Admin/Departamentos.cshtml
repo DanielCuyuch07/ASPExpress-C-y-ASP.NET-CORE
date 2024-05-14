@@ -134,7 +134,11 @@
         <!-- Botón que abre el modal -->
 
         <div class="me-5 text-center">
-            <button type="button" class="btn btn-primary mt-5" data-toggle="tooltip" data-placement="bottom" title="Agregar Departamentos">
+            <button type="button"
+                    class="btn btn-primary mt-5" 
+                    data-toggle="tooltip" 
+                    data-bs-placement="bottom" 
+                    title="Agregar Departamentos">
                 <i class="bi bi-plus fa-floppy-disk text-light"></i>
             </button>
         </div>
@@ -142,7 +146,11 @@
         <div class="d-flex justify-content-end me-5">
             <div class="me-5">
                 <form method="get" asp-action="ExportarDepartamentosExcel" class="export-form">
-                    <button type="submit" class="btn btn-primary mt-5 " data-toggle="tooltip" data-placement="top" title="Generar Excel">
+                    <button type="submit" 
+                            class="btn btn-primary mt-5 " 
+                            data-toggle="tooltip"
+                            data-placement="top" 
+                            title="Generar Excel">
                         <i class="bi bi-file-excel fa-floppy-disk text-light"></i>
                     </button>
                 </form>
@@ -188,7 +196,10 @@
                                     <div class="d-flex justify-content-center">
                                         <form method="post" asp-action="DeleteDepartamentos" class="delete-form">
                                               <input type="hidden" name="idDepartamento" value="@departament.IdDepartamento" />
-                                            <button type="submit" class="btn btn-outline-info btn-sm">
+                                            <button type="submit" class="btn btn-outline-info btn-sm"
+                                                    data-toggle="tooltip"
+                                                    data-bs-placement="rigth"
+                                                    title="Eliminar Departamento">
                                                 <i class="bi bi-trash3 text-dark"></i>
                                         </button>
                                     </form>

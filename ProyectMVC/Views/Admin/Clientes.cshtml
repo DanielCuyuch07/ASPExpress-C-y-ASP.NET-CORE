@@ -153,7 +153,12 @@
         </div>
 
         <div class="me-5 text-center">
-            <button type="button" class="btn btn-primary mt-5" data-target=".bd-example-modal-lg" data-toggle="tooltip" data-placement="bottom" title="Agregar Clientes ">
+            <button type="button" 
+                    class="btn btn-primary mt-5" 
+                    data-target=".bd-example-modal-lg" 
+                    data-toggle="tooltip" 
+                    data-bs-placement="bottom" 
+                    title="Agregar Clientes ">
                 <i class="bi bi-plus fa-floppy-disk text-light"></i>
             </button>
         </div>
@@ -161,8 +166,8 @@
 
         <div class="d-flex justify-content-end me-5">
             <div class="me-5">
-                <form method="get" asp-action="ExportacionClientesExcel" class="export-form" data-toggle="tooltip" data-placement="top" title="Generar Excel">
-                    <button type="submit" class="btn btn-primary mt-5 ">
+                <form method="get" asp-action="ExportacionClientesExcel" class="export-form" >
+                    <button type="submit" class="btn btn-primary mt-5 " data-toggle="tooltip" data-placement="top" title="Generar Excel">
                         <i class="bi bi-file-excel fa-floppy-disk text-light"></i>
                     </button>
                 </form>
@@ -206,7 +211,11 @@
                                 <div class="d-flex justify-content-center  ms-3">
                                         <form method="post" asp-action="DeleteClientes" class="delete-form ">
                                             <input type="hidden" name="IdCliente" value="@client.IdCliente" />
-                                            <button type="submit" class="btn btn-outline-info btn-sm">
+                                            <button type="submit"
+                                                    class="btn btn-outline-info btn-sm"
+                                                    data-toggle="tooltip"
+                                                    data-bs-placement="right"
+                                                    title="Eliminar CLiente">
                                                 <i class="bi bi-trash3 text-dark"></i>
                                         </button>
                                     </form>
